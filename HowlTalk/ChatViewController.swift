@@ -34,7 +34,12 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var sendButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        getMessageList()
+        Database.database().reference().child("users").child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
+            let dic = datasnapshot.value as! [String:Any]
+                   self.userModel = UserModel(JSON: dic)
+                   self.getMessageList()
+                   
+               })
         sendButton.addTarget(self, action: #selector(sendMessageRoom), for: .touchUpInside)
         // Do any additional setup after loading the view.
     }

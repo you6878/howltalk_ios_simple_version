@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YN5-V3-IJ0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YN5-V3-IJ0">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -92,8 +92,9 @@
                         <outlet property="email" destination="T94-rt-ccz" id="W4L-el-4gM"/>
                         <outlet property="loginButton" destination="C51-f2-VvP" id="ZhV-nP-eCU"/>
                         <outlet property="password" destination="Vca-SR-sMm" id="TCQ-pE-1JY"/>
-                        <outlet property="signup" destination="4sx-dt-JLa" id="rTj-FI-Ioo"/>
+                        <outlet property="signup" destination="4sx-dt-JLa" id="1mX-hr-Gxh"/>
                         <segue destination="1Ih-h6-QPE" kind="presentation" identifier="MainSeuge" modalPresentationStyle="fullScreen" id="DTh-27-wQ7"/>
+                        <segue destination="uHl-aZ-agA" kind="show" identifier="SignupSeuge" id="fc6-8Y-2Zu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D25-U3-b97" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -178,7 +179,7 @@
         <!--Account-->
         <scene sceneID="W6U-9s-UhM">
             <objects>
-                <viewController id="ZCP-31-Pli" sceneMemberID="viewController">
+                <viewController id="ZCP-31-Pli" customClass="MyPageViewController" customModule="HowlTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MjC-o5-ePB"/>
                         <viewControllerLayoutGuide type="bottom" id="Xdf-V0-BO9"/>
@@ -186,9 +187,29 @@
                     <view key="view" contentMode="scaleToFill" id="xma-si-yFe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woG-wM-kiG">
+                                <rect key="frame" x="20" y="54" width="374" height="45"/>
+                                <color key="backgroundColor" red="1" green="0.50756597520000002" blue="0.02514689602" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="iE4-6h-g8I"/>
+                                </constraints>
+                                <state key="normal" title="로그아웃">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="woG-wM-kiG" firstAttribute="leading" secondItem="xma-si-yFe" secondAttribute="leading" constant="20" id="H5o-iB-P5q"/>
+                            <constraint firstItem="woG-wM-kiG" firstAttribute="top" secondItem="MjC-o5-ePB" secondAttribute="bottom" constant="10" id="WlQ-c0-o8H"/>
+                            <constraint firstAttribute="trailing" secondItem="woG-wM-kiG" secondAttribute="trailing" constant="20" id="lu3-qd-Dcz"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="ic_account_circle" id="NtU-eE-YA7"/>
+                    <connections>
+                        <outlet property="logoutButton" destination="woG-wM-kiG" id="o75-EH-0hE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hQ-qV-6ls" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -383,11 +404,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Tbp-6o-TgI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vdJ-jm-EhY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="68G-H7-0q4" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="20" y="184" width="374" height="40"/>
+                                <rect key="frame" x="20" y="140" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ZQi-uA-ig8"/>
                                 </constraints>
@@ -403,7 +424,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dsC-d0-FIL" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="20" y="234" width="374" height="40"/>
+                                <rect key="frame" x="20" y="190" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="IKs-bx-jAk"/>
                                 </constraints>
@@ -419,7 +440,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLv-8O-fvY">
-                                <rect key="frame" x="20" y="383" width="374" height="45"/>
+                                <rect key="frame" x="20" y="339" width="374" height="45"/>
                                 <color key="backgroundColor" red="1" green="0.50756597518920898" blue="0.02514689601957798" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="M1a-BZ-7jf"/>
@@ -429,7 +450,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQm-2p-gTA">
-                                <rect key="frame" x="20" y="436" width="374" height="45"/>
+                                <rect key="frame" x="20" y="392" width="374" height="45"/>
                                 <color key="backgroundColor" red="1" green="0.50756597518920898" blue="0.02514689601957798" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="obi-bD-6um"/>
@@ -439,14 +460,14 @@
                                 </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_account_circle" translatesAutoresizingMaskIntoConstraints="NO" id="gJ2-se-KQX">
-                                <rect key="frame" x="157" y="64" width="100" height="100"/>
+                                <rect key="frame" x="157" y="20" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="3ss-dG-SEn"/>
                                     <constraint firstAttribute="width" constant="100" id="wNz-hf-Gc3"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9NO-iZ-sl2" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="20" y="282" width="374" height="40"/>
+                                <rect key="frame" x="20" y="238" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7DM-pk-FUG"/>
                                 </constraints>
@@ -462,7 +483,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wvb-uu-BRe">
-                                <rect key="frame" x="20" y="330" width="374" height="45"/>
+                                <rect key="frame" x="20" y="286" width="374" height="45"/>
                                 <color key="backgroundColor" red="1" green="0.50756597518920898" blue="0.02514689601957798" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="XSh-eA-6on"/>

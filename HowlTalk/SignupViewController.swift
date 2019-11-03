@@ -54,13 +54,13 @@ class SignupViewController: UIViewController,UINavigationControllerDelegate,UIIm
             //이미지 데이터
             let image = self.imageView.image!.jpegData(compressionQuality: 0.1)
             //스토리지 이미지 업로드
-            let fileRef = Storage.storage().reference().child("userImages").child(uid!)
+            let fileRef = Storage.storage().reference().child("userImages").child("\(uid!).jpg")
             fileRef.putData(image!, metadata: nil, completion: { (data, error) in
                 fileRef.downloadURL { (url, err) in
                     
                     //유저 이름, 이미지 주소, UID값 맵으로 생성
                     let values = ["userName":self.name.text,
-                                  "profileImageUrl":url,
+                                  "profileImageUrl":url?.absoluteString,
                                   "uid":Auth.auth().currentUser?.uid
                                  ] as [String : Any]
                     

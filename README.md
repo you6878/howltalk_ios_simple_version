@@ -1,5 +1,6 @@
 # IOS 하울톡 심플버전 (파이어베이스 기반)
 유튜브 강의(http://bit.ly/2WyKGxc) 를 축약하 심플 버전입니다.
+설문조사 링크(http://bit.ly/2klfGSV)
 
 ## 1주차
 ### [섹션1] [IOS 스위프트 프로그래밍 문법](https://github.com/you6878/howltalk_ios_simple_version/blob/master/Guide/section_1/index.md)

@@ -17,12 +17,12 @@
 - 가장 많이 쓰이는 기능인 라벨, 버튼, 이미지뷰, 테이블뷰 사용하기
 
 ## 2주차
-### [섹션3] Firebase과 Swift 연동 1
+### [섹션3] [Firebase과 Swift 연동 1](https://github.com/you6878/howltalk_ios_simple_version/blob/master/Guide/section_3/index.md)
 - 누구나 쉽게 서버를 만들 수 있는 Firebase란?
 - 로그인을 할 수있는 인증 라이브러리를 사용해보자.
 - 정보를 저장할 수 있는 데이터베이스를 사용해보자.
 
-### [섹션4] Firebase과 Swift 연동 2
+### [섹션4] [Firebase과 Swift 연동 2](https://github.com/you6878/howltalk_ios_simple_version/blob/master/Guide/section_4/index.md)
 - 이미지를 올릴 수 있는 스토리지를 사용해보자.
 - 가장 쉬운 전체 푸시를 전송해보자.
 

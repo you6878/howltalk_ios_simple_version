@@ -59,13 +59,13 @@ class SignupViewController: UIViewController,UINavigationControllerDelegate,UIIm
                 fileRef.downloadURL { (url, err) in
                     
                     //유저 이름, 이미지 주소, UID값 맵으로 생성
-                    let values = ["userName":self.name.text,
-                                  "profileImageUrl":url?.absoluteString,
-                                  "uid":Auth.auth().currentUser?.uid
-                                 ] as [String : Any]
+                    var userModel = UserModel()
+                    userModel.userName = self.name.text
+                    userModel.profileImageUrl = url?.absoluteString
+                    userModel.uid = Auth.auth().currentUser?.uid
                     
                     //데이터베이스에 유저정보 입력
-                    Database.database().reference().child("users").child(uid!).setValue(values, withCompletionBlock: { (err, ref) in
+                    Database.database().reference().child("users").child(uid!).setValue(userModel.toJSON(), withCompletionBlock: { (err, ref) in
                         if(err == nil){
                             self.dismiss(animated: true, completion: nil)
                         }

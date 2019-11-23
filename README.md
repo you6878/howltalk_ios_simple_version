@@ -27,10 +27,10 @@
 
 ## 3주차
 
-### [섹션5] IOS 채팅앱 만들기 1
+### [섹션5] [IOS 채팅앱 만들기 1](https://github.com/you6878/howltalk_ios_simple_version/blob/master/Guide/section_5/index.md)
 - Swift와 Firebase 인증 라이브러를 통한 로그인페이지 제작
 
-### [섹션6] IOS 채팅앱 만들기 2
+### [섹션6] [IOS 채팅앱 만들기 2](https://github.com/you6878/howltalk_ios_simple_version/blob/master/Guide/section_6/index.md)
 - 스토리지 연동으로 사진을 전송해보자
 
 ## 4주차

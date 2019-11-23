@@ -3,36 +3,34 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>873352608854-co3hoa6bk2dq5r3ij69i4g0m8vag6aal.apps.googleusercontent.com</string>
+	<string>996971985196-t01q3tc5frsoseqoo1vkbuqjgjlcvm3n.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.873352608854-co3hoa6bk2dq5r3ij69i4g0m8vag6aal</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>873352608854-nkmn9lj6u78e627v0uqn46oij06rm911.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.996971985196-t01q3tc5frsoseqoo1vkbuqjgjlcvm3n</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAGbPBgwTp4TgzRLMRul8MW4Ac7xjgDIb0</string>
+	<string>AIzaSyDE6DF00Ms7VNg3GsIYAVg-r7ikoFVza1g</string>
 	<key>GCM_SENDER_ID</key>
-	<string>873352608854</string>
+	<string>996971985196</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.bpplatform.HowlTalk</string>
+	<string>com.bbplatform.HowlTalk</string>
 	<key>PROJECT_ID</key>
-	<string>howltalk-a2f67</string>
+	<string>howltalk-d92b6</string>
 	<key>STORAGE_BUCKET</key>
-	<string>howltalk-a2f67.appspot.com</string>
+	<string>howltalk-d92b6.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:873352608854:ios:3b73b05114dc8559</string>
+	<string>1:996971985196:ios:f967b80cf0268db4181489</string>
 	<key>DATABASE_URL</key>
-	<string>https://howltalk-a2f67.firebaseio.com</string>
+	<string>https://howltalk-d92b6.firebaseio.com</string>
 </dict>
 </plist>

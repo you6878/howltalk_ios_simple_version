@@ -84,11 +84,7 @@ class PeopleViewController: UIViewController, UITableViewDelegate,UITableViewDat
                         ////내가 선택한 사람의 방이 존재할때
                         self.chatRoomUid = item.key
                         self.performSegue(withIdentifier: self.detailChatSeuge, sender: nil)
-                    }else{
-                        //다시 생성
-                        self.createRoom(uid: self.myUid!, destinationUid: self.destinationUid!)
                     }
-                    
                 }
             }
         })

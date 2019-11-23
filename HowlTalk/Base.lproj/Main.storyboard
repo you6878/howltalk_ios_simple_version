@@ -3,7 +3,7 @@
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -169,7 +169,7 @@
                     <navigationItem key="navigationItem" title="친구목록" id="fip-3Q-0pE"/>
                     <connections>
                         <outlet property="tableview" destination="leO-dv-OO5" id="5M5-H7-00x"/>
-                        <segue destination="ISy-La-TRj" kind="show" identifier="DetailChatSeuge" id="wNr-mq-Od8"/>
+                        <segue destination="ISy-La-TRj" kind="show" identifier="DetailChatSeuge" id="Blu-Fm-6CK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8qu-LZ-KNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -312,7 +312,6 @@
                                                 <constraint firstItem="FDv-pT-b3B" firstAttribute="leading" secondItem="bra-Zj-aba" secondAttribute="leading" constant="12" id="1fe-Wr-sa5"/>
                                                 <constraint firstItem="Pa7-1H-z27" firstAttribute="leading" secondItem="FDv-pT-b3B" secondAttribute="trailing" constant="16" id="39b-uc-gD1"/>
                                                 <constraint firstItem="arV-oR-DBc" firstAttribute="top" secondItem="bra-Zj-aba" secondAttribute="topMargin" constant="3" id="4m0-9O-xEY"/>
-                                                <constraint firstItem="arV-oR-DBc" firstAttribute="leading" secondItem="bra-Zj-aba" secondAttribute="leadingMargin" constant="50" id="5DY-8b-yYm"/>
                                                 <constraint firstItem="FDv-pT-b3B" firstAttribute="top" secondItem="RfS-aE-UTD" secondAttribute="bottom" id="64q-Q1-8cC"/>
                                                 <constraint firstItem="RfS-aE-UTD" firstAttribute="top" secondItem="bra-Zj-aba" secondAttribute="top" constant="4" id="7RC-FU-fDI"/>
                                                 <constraint firstItem="3V9-T8-tsk" firstAttribute="top" secondItem="arV-oR-DBc" secondAttribute="top" constant="-10" id="Dpm-1d-SFe"/>
@@ -320,6 +319,7 @@
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="arV-oR-DBc" secondAttribute="trailing" constant="65" id="Hee-fU-jlY"/>
                                                 <constraint firstAttribute="bottom" secondItem="Pa7-1H-z27" secondAttribute="bottom" constant="0.5" id="P8p-SN-5hY"/>
                                                 <constraint firstItem="3V9-T8-tsk" firstAttribute="bottom" secondItem="arV-oR-DBc" secondAttribute="bottom" constant="10" id="Rk3-UB-nuC"/>
+                                                <constraint firstItem="arV-oR-DBc" firstAttribute="leading" secondItem="RfS-aE-UTD" secondAttribute="trailing" constant="31" id="Tfr-7M-VfB"/>
                                                 <constraint firstItem="RfS-aE-UTD" firstAttribute="leading" secondItem="bra-Zj-aba" secondAttribute="leading" constant="11" id="fP0-mo-fIv"/>
                                                 <constraint firstItem="3V9-T8-tsk" firstAttribute="trailing" secondItem="arV-oR-DBc" secondAttribute="trailing" constant="10" id="mxW-g5-5oL"/>
                                                 <constraint firstItem="3V9-T8-tsk" firstAttribute="leading" secondItem="arV-oR-DBc" secondAttribute="leading" constant="-15" id="zCN-zO-1EJ"/>

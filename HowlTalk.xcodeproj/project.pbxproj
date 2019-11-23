@@ -17,7 +17,7 @@
 		028121A01F309E32007F8ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0281219F1F309E32007F8ADD /* Assets.xcassets */; };
 		028121A31F309E32007F8ADD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 028121A11F309E32007F8ADD /* LaunchScreen.storyboard */; };
 		02E3BE5C1F4316D8005D4500 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E3BE5B1F4316D8005D4500 /* SignupViewController.swift */; };
-		1B169E4323690D5E0095B101 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B169E4223690D5E0095B101 /* GoogleService-Info.plist */; };
+		1BB606C52387DEDC00B24EEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BB606C42387DEDC00B24EEC /* GoogleService-Info.plist */; };
 		1BC87397236B88450085AC27 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC87396236B88450085AC27 /* Util.swift */; };
 		1BE5025E236E68E70021C993 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5025D236E68E70021C993 /* MyPageViewController.swift */; };
 		295973D8450ECA70E0C0BCB2 /* Pods_HowlTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A47B71374DEA39D758BA695 /* Pods_HowlTalk.framework */; };
@@ -37,7 +37,7 @@
 		028121A41F309E32007F8ADD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02E3BE5B1F4316D8005D4500 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		1109CC3946ED0CA965D564DE /* Pods-HowlTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowlTalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HowlTalk/Pods-HowlTalk.debug.xcconfig"; sourceTree = "<group>"; };
-		1B169E4223690D5E0095B101 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1BB606C42387DEDC00B24EEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1BC87396236B88450085AC27 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		1BE5025D236E68E70021C993 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		2A47B71374DEA39D758BA695 /* Pods_HowlTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HowlTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,9 +94,9 @@
 				0215C6851F7A7CC6008B76FD /* ChatViewController.swift */,
 				0281219C1F309E32007F8ADD /* Main.storyboard */,
 				0281219F1F309E32007F8ADD /* Assets.xcassets */,
+				1BB606C42387DEDC00B24EEC /* GoogleService-Info.plist */,
 				028121A11F309E32007F8ADD /* LaunchScreen.storyboard */,
 				028121A41F309E32007F8ADD /* Info.plist */,
-				1B169E4223690D5E0095B101 /* GoogleService-Info.plist */,
 				1BC87396236B88450085AC27 /* Util.swift */,
 				1BE5025D236E68E70021C993 /* MyPageViewController.swift */,
 			);
@@ -184,7 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				028121A31F309E32007F8ADD /* LaunchScreen.storyboard in Resources */,
-				1B169E4323690D5E0095B101 /* GoogleService-Info.plist in Resources */,
+				1BB606C52387DEDC00B24EEC /* GoogleService-Info.plist in Resources */,
 				028121A01F309E32007F8ADD /* Assets.xcassets in Resources */,
 				0281219E1F309E32007F8ADD /* Main.storyboard in Resources */,
 			);

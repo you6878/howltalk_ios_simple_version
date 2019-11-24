@@ -1,0 +1,116 @@
+//
+//  ChatViewController.swift
+//  HowlTalk
+//
+//  Created by Howl on 2019/11/24.
+//  Copyright © 2019 유명식. All rights reserved.
+//
+
+import UIKit
+import Firebase
+
+class ChatViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+    
+    var comments : [ChatModel.Comment] = []
+    
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var textField: UITextField!
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return comments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //myCell -> MyMessageCell 캐스틴
+        
+        
+        var myUid = Auth.auth().currentUser!.uid
+        //내가 보낸 메세지인지 비교하는 부분
+        if(comments[indexPath.row].uid == myUid){
+            //내가 보낸 메세지
+            var myCell = tableView.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as! MyMessageCell
+            
+            //메세지 입력
+            myCell.messageLabel.text = comments[indexPath.row].message
+            return myCell
+        }else{
+            //상대방 메세지
+            var destinationCell = tableView.dequeueReusableCell(withIdentifier: "DestinationMessageCell", for: indexPath) as! DestinationMessageCell
+            //메세지 입력
+            destinationCell.messageLabel.text = comments[indexPath.row].message
+            return destinationCell
+        }
+    }
+    
+    @IBOutlet weak var mainTableview: UITableView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        mainTableview.delegate = self
+        mainTableview.dataSource = self
+        // Do any additional setup after loading the view.
+        
+        //버튼에 메세지 전송 이벤트 추가
+        sendButton.addTarget(self, action: #selector(sendMessage), for: UIControl.Event.touchUpInside)
+        
+        //메세지 받아오기
+        getMessageList()
+    }
+    func getMessageList(){
+        Database.database().reference()
+            .child("chatrooms")
+            .child(chatRoomUid!)
+            .child("comments")
+            .observe(DataEventType.value) { (dataSnapshot) in
+                //코멘트 다 지우기
+                self.comments.removeAll()
+                //코멘트 받아오기
+                for child in dataSnapshot.children{
+                    var item = child as! DataSnapshot
+                    var value = item.value as! [String:Any]
+                    var commentFromServer = ChatModel.Comment(JSON: value)
+                    self.comments.append(commentFromServer!)
+                }
+                //테이블뷰 새로고침
+                self.mainTableview.reloadData()
+        }
+    }
+    var chatRoomUid : String?
+    @objc func sendMessage(){
+        //나의 UID 받아오기
+        var myUid = Auth.auth().currentUser?.uid
+        var message : [String : Any] = [
+            "uid" : myUid,
+            "message" : textField.text!,
+            "timestamp" : ServerValue.timestamp()
+        ]
+        
+        Database.database().reference()
+            .child("chatrooms")
+            .child(chatRoomUid!)
+            //comments 경로 추가
+            .child("comments")
+            .childByAutoId()
+            .setValue(message)
+    }
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+}
+
+class MyMessageCell: UITableViewCell {
+    
+    @IBOutlet weak var messageLabel: UILabel!
+}
+class DestinationMessageCell: UITableViewCell {
+    
+    @IBOutlet weak var messageLabel: UILabel!
+    
+}

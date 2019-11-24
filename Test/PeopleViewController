@@ -84,17 +84,19 @@ UITableViewDataSource {
                 var item = child as! DataSnapshot
                 var value = item.value as! [String : Any]
                 var chatModel = ChatModel(JSON: value)
-
+                self.chatRoomUid = nil
                 //일일이 방을 탐색하면서 내가 대화하고 싶은 상대방이 있는 방의 이름 값을 가져옴
                 if(chatModel?.users[self.destiatnionUid!] == true){
                     //방이 존재할때
                     self.chatRoomUid = item.key
                     self.performSegue(withIdentifier: "detailChatSeuge", sender: nil)
                     break
-                }else{
-                    //방이 존재하지 않을때 생성
-                    self.createRoom(uid: myUid!,destinationUid: self.destiatnionUid!)
                 }
+            }
+            if(chatRoomUid == nil)
+            {
+                //방이 존재하지 않을때 생성
+                self.createRoom(uid: myUid!,destinationUid: self.destiatnionUid!)
             }
         })
         

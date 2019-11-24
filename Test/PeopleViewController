@@ -78,13 +78,13 @@ UITableViewDataSource {
                     self.createRoom(uid: myUid!, destinationUid: self.destiatnionUid!)
                     return
                 }
-                
+                self.chatRoomUid = nil
                 //내가 소속된 방을 다 읽어옴
                 for child in datasnapshot.children{
                     var item = child as! DataSnapshot
                     var value = item.value as! [String : Any]
                     var chatModel = ChatModel(JSON: value)
-                    self.chatRoomUid = nil
+                    
                     //일일이 방을 탐색하면서 내가 대화하고 싶은 상대방이 있는 방의 이름 값을 가져옴
                     if(chatModel?.users[self.destiatnionUid!] == true){
                         //방이 존재할때

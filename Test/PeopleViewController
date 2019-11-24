@@ -90,6 +90,7 @@ UITableViewDataSource {
                     //방이 존재할때
                     self.chatRoomUid = item.key
                     self.performSegue(withIdentifier: "detailChatSeuge", sender: nil)
+                    break
                 }else{
                     //방이 존재하지 않을때 생성
                     self.createRoom(uid: myUid!,destinationUid: self.destiatnionUid!)

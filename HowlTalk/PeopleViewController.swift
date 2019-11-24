@@ -77,6 +77,7 @@ class PeopleViewController: UIViewController, UITableViewDelegate,UITableViewDat
             }
             else{
                 //방이 있을때
+                self.chatRoomUid = nil
                 for item in datasnapshot.children.allObjects as! [DataSnapshot]{
                     let chatRoomdic = item.value as! [String:AnyObject]
                     let chatModel = ChatModel(JSON: chatRoomdic)
@@ -84,7 +85,13 @@ class PeopleViewController: UIViewController, UITableViewDelegate,UITableViewDat
                         ////내가 선택한 사람의 방이 존재할때
                         self.chatRoomUid = item.key
                         self.performSegue(withIdentifier: self.detailChatSeuge, sender: nil)
+                        break
                     }
+                }
+                if(self.chatRoomUid == nil)
+                {
+                    //다시 생성
+                    self.createRoom(uid: self.myUid!, destinationUid: self.destinationUid!)
                 }
             }
         })

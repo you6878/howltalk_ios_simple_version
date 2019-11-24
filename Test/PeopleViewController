@@ -1,0 +1,136 @@
+//
+//  ViewController.swift
+//  HowlTalk
+//
+//  Created by Howl on 2019/11/03.
+//  Copyright © 2019 유명식. All rights reserved.
+//
+
+import UIKit
+import Firebase
+import SDWebImage
+
+class PeopleViewController: UIViewController,
+UITableViewDelegate,
+UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return array.count
+    }
+    
+    //아이템 갯수만큼 Function 호출
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
+        
+        var myItemCell = cell as! MyItemCell
+        //indexPath.row는 Cell에 대한 현재 Position
+        
+        //텍스트 맵핑
+        myItemCell.nameLabel.text = array[indexPath.row].userName
+        //이미지 맵핑
+        let url = array[indexPath.row].profileImageUrl
+        myItemCell.mainImageView.sd_setImage(with: URL(string: url!), completed: nil)
+        
+        return myItemCell
+    }
+    @IBOutlet weak var mainTableview: UITableView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        mainTableview.delegate = self
+        mainTableview.dataSource = self
+        loadPeopleload()
+       
+    }
+    
+    var array : [UserModel] = []
+    
+    func loadPeopleload(){
+        Database.database().reference().child("users").observe(DataEventType.value) { (snapshot) in
+            //Array 초기화
+            self.array.removeAll()
+            //서버데이터 파싱 및 Array에 담기
+            for child in snapshot.children{
+                let item = child as! DataSnapshot
+                let value = item.value as! [String : Any]
+                let userModel = UserModel(JSON: value)
+                self.array.append(userModel!)
+            }
+            //테이블뷰 새로고침
+            self.mainTableview.reloadData()
+        }
+    }
+    var destiatnionUid : String?
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //나의 UID
+        let myUid = Auth.auth().currentUser?.uid
+        
+        //대화할 상대방 ID
+        destiatnionUid = array[indexPath.row].uid
+        
+        Database.database().reference()
+            .child("chatrooms")
+            .queryOrdered(byChild: "users/" + myUid!)
+            .queryEqual(toValue: true)
+            .observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
+                
+//            //방이 하나도 없을때
+            if(datasnapshot.childrenCount == 0){
+                self.createRoom(uid: myUid!, destinationUid: self.destiatnionUid!)
+                return
+            }
+
+            //내가 소속된 방을 다 읽어옴
+            for child in datasnapshot.children{
+                var item = child as! DataSnapshot
+                var value = item.value as! [String : Any]
+                var chatModel = ChatModel(JSON: value)
+
+                //일일이 방을 탐색하면서 내가 대화하고 싶은 상대방이 있는 방의 이름 값을 가져옴
+                if(chatModel?.users[self.destiatnionUid!] == true){
+                    //방이 존재할때
+                    self.chatRoomUid = item.key
+                    self.performSegue(withIdentifier: "detailChatSeuge", sender: nil)
+                }else{
+                    //방이 존재하지 않을때 생성
+                    self.createRoom(uid: myUid!,destinationUid: self.destiatnionUid!)
+                }
+            }
+        })
+        
+        
+        
+    }
+    var chatRoomUid : String?
+    // 방 생성 코드
+    func createRoom(uid : String, destinationUid : String){
+        let createRoomInfo : [String : Any] = [
+            "users" : [
+                    uid: true,
+                    destinationUid :true
+            ]
+        ]
+        //데이터베이스의 chatrooms에 createRoomInfo 맵을 저장
+        Database.database().reference()
+            .child("chatrooms")
+            .childByAutoId()
+            .setValue(createRoomInfo, withCompletionBlock: { (err, ref) in
+                //방번호(유일키)를 가져오는 부분
+                self.chatRoomUid = ref.key
+                
+                //다음화면 호출 코드
+                self.performSegue(withIdentifier: "detailChatSeuge", sender: nil)
+        })
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "detailChatSeuge"){
+            var vc = segue.destination as! ChatViewController
+            vc.chatRoomUid/*채팅 화면*/ = chatRoomUid/*친구 목록 화면*/
+        }
+    }
+
+}
+class MyItemCell : UITableViewCell{
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var mainImageView: UIImageView!
+}
+

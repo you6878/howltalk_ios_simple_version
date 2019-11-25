@@ -38,5 +38,5 @@
 ### [섹션7] [IOS 채팅앱 만들기 3](https://github.com/you6878/howltalk_ios_simple_version/blob/master/Guide/section_7/index.md)
 - Database 연동으로 친구목록을 읽어오자
 
-### [섹션6] [IOS 채팅앱 만들기 4](https://github.com/you6878/howltalk_ios_simple_version/blob/master/Guide/section_8/index.md)
+### [섹션8] [IOS 채팅앱 만들기 4](https://github.com/you6878/howltalk_ios_simple_version/blob/master/Guide/section_8/index.md)
 - Database 연동으로 메세지를 전송해보자.
